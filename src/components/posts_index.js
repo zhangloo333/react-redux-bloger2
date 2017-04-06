@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {fetchPosts} from '../actions/index';
 
-
+//82
+import {Link} from 'react-router';
 //76
 // export default () => {
 //   return <div>List of Blog posts.</div>
@@ -21,7 +22,15 @@ class PostIndex extends Component {
   }
   render() {
     return (
-      <div> List of blog posts</div>
+      // <div> List of blog posts</div>
+      <div>
+        <div className="text-xs-right">
+            <Link to="/posts/new" className="btn btn-primary" >
+              Add a post
+            </Link>
+        </div>
+        List of blog posts
+      </div>
     );
   }
  }
