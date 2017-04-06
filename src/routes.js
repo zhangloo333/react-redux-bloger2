@@ -4,7 +4,10 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/app';
 
 //add postindex from posts_index 76
-import PostIndex from './components/posts_index'
+import PostIndex from './components/posts_index';
+
+// add post new 创造components
+import PostsNew from './components/posts_new';
 
 // 75 add some div to test router
 const Greating = ()=> {
@@ -20,6 +23,7 @@ export default(
     <Route path="greet2" component={Greating} />
     <Route path="greet3" component={Greating} />
     */}
+  <Route path="posts/new" component={PostsNew} />
 
 </Route>
 );
