@@ -6,25 +6,20 @@ import { createStore, applyMiddleware } from 'redux';
 // import App from './components/app';
 import reducers from './reducers';
 
-// add new components
 import routes from './routes';
 import {Router, browserHistory} from 'react-router';
 // add in 73
 
+import promise from 'redux-promise';
+// add in 77 fetch data from api
 
-
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(
+  //add in 77 add promis for fetch data
+  promise
+)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router history={browserHistory} routes={routes}/>
   </Provider>
   , document.querySelector('.container'));
-
-// ReactDOM.render(
-//   <Provider store={createStoreWithMiddleware(reducers)}>
-//     {/* 被删掉 <App />
-//     */}
-//     <Router history={browserHistory} routes={routes} />
-//   </Provider>
-//   , document.querySelector('.container'));
