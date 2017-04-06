@@ -8,12 +8,16 @@ import reducers from './reducers';
 
 // add new components
 import routes from './routes';
+import {Router, browserHistory} from 'react-router';
+// add in 73
 
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    {/* <App />*/}
+    {/* 被删掉 <App />
+    */}
+    <Router history={browserHistory} routes={routes}/>
   </Provider>
   , document.querySelector('.container'));
