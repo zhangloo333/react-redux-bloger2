@@ -12,12 +12,19 @@ import {Router, browserHistory} from 'react-router';
 // add in 73
 
 
+
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    {/* 被删掉 <App />
-    */}
     <Router history={browserHistory} routes={routes}/>
   </Provider>
   , document.querySelector('.container'));
+
+// ReactDOM.render(
+//   <Provider store={createStoreWithMiddleware(reducers)}>
+//     {/* 被删掉 <App />
+//     */}
+//     <Router history={browserHistory} routes={routes} />
+//   </Provider>
+//   , document.querySelector('.container'));
