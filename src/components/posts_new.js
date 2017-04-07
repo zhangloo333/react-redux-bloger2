@@ -2,25 +2,31 @@ import React, {Component} from 'react';
 import {reduxForm} from 'redux-form';
 
 class PostsNew extends Component {
+
   render() {
+    //刚才这一行有问题；
+    const {fields:{title, categories,content}, handleSubmit} = this.props;
+    //  const handleSubmit = this.props.handleSubmit; = const {handleSubmit} = this.props
+
+    // const title = this.props.fields.title = const {fields:{title}}
     return (
       // <div> Create Form </div>  build a form
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Create A New Post</h3>
 
         <div className = "form-group">
           <label>Title</label>
-          <input type="text" className="form-control" />
+          <input type="text" className="form-control" {...title}/>
         </div>
 
         <div className = "form-group">
           <label>categories</label>
-          <input type="text" className="form-control" />
+          <input type="text" className="form-control" {...categories}/>
         </div>
 
         <div className = "form-group">
           <label>Content</label>
-          <input type="text" className="form-control" />
+          <input type="text" className="form-control" {...content}/>
         </div>
 
         <button type ="submit" className="btn btn-primary">Submit</button>
