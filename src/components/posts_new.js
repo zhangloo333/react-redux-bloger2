@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {reduxForm} from 'redux-form';
+// import action post from actions provider
+
+import { createPost } from '../actions/index';
 
 class PostsNew extends Component {
 
@@ -11,7 +14,7 @@ class PostsNew extends Component {
     // const title = this.props.fields.title = const {fields:{title}}
     return (
       // <div> Create Form </div>  build a form
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(this.props.createPost)}>
         <h3>Create A New Post</h3>
 
         <div className = "form-group">
@@ -35,10 +38,17 @@ class PostsNew extends Component {
   }
 }
 
+/* 87
+connect: frist argument is mapStateToProps, 2nd is mapDispathToProps
+reduxForm: 1ft is form congig, 2nd is mapStateToProps, 3rd is mapDispathToProps
+*/
+
+
+
 export default reduxForm({
     form: 'PostsNewForm',
     fields:['title','categories','content']
-})(PostsNew);
+},null,{createPost})(PostsNew);
 
 // user types something in ...record it on application state
 // redux form 主要是把 componenet level 变成 application level的
