@@ -20,6 +20,21 @@ class PostIndex extends Component {
     this.props.fetchPosts();
 
   }
+  renderPosts(){
+    return this.props.posts.map((post) => {
+      console.log("+ ",post.categories)
+      console.log("- ",post.title)
+
+      return (
+        <li className="list-group-item" key={post.id} >
+          <span className="pull-xs-right"> {post.categories} </span>
+          <strong>{post.title}</strong>
+        </li>
+      )
+    })
+  }
+
+
   render() {
     return (
       // <div> List of blog posts</div>
@@ -29,10 +44,18 @@ class PostIndex extends Component {
               Add a post
             </Link>
         </div>
-        List of blog posts
+        <h3>Posts</h3>
+        <ul className="list-group">
+          {this.renderPosts()}
+        </ul>
       </div>
     );
   }
+ }
+
+ //91 post 反回来的结果需要用在 index的页面上；
+ function mapStateToProps(state) {
+   return {posts: state.posts.all};
  }
 
 // export default PostIndex
@@ -45,4 +68,6 @@ class PostIndex extends Component {
 // export default connect(null,mapDispatchToProps)(PostIndex);
 //上面的简便写法
 // export default connect(null,{fetchPosts:fetchPosts})(PostIndex);
-export default connect(null,{fetchPosts})(PostIndex);
+// export default connect(null,{fetchPosts})(PostIndex); detlet by 91 replace a state
+
+export default connect(mapStateToProps,{fetchPosts})(PostIndex);
