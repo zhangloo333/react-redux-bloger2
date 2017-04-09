@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {fetchPosts} from '../actions/index';
 
+
+
 //82
 import {Link} from 'react-router';
 //76
@@ -27,8 +29,10 @@ class PostIndex extends Component {
 
       return (
         <li className="list-group-item" key={post.id} >
-          <span className="pull-xs-right"> {post.categories} </span>
-          <strong>{post.title}</strong>
+          <Link to={`posts/${post.id}`}>
+            <span className="pull-xs-right"> {post.categories} </span>
+            <strong>{post.title}</strong>
+          </Link>
         </li>
       )
     })

@@ -8,7 +8,9 @@ import PostIndex from './components/posts_index';
 
 // add post new 创造components
 import PostsNew from './components/posts_new';
+//92 Dynamic show parameter
 
+import PostsShow from './components/posts_show';
 // 75 add some div to test router
 const Greating = ()=> {
   return <div>hey there </div>
@@ -22,8 +24,13 @@ export default(
     <Route path="greet" component={Greating} />
     <Route path="greet2" component={Greating} />
     <Route path="greet3" component={Greating} />
+
+
     */}
   <Route path="posts/new" component={PostsNew} />
+  <Route path="posts/:id" component={PostsShow} />
 
 </Route>
 );
+
+//this.props.id = posts/:id
